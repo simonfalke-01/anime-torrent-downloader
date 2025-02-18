@@ -39,7 +39,7 @@ def getTorrents(qbt: qbittorrentapi.Client):
 
 if __name__ == '__main__':
     argument_parser = argparse.ArgumentParser()
-    argument_parser.add_argument('-h', '--host', type=str, required=False, default='localhost')
+    argument_parser.add_argument('-m', '--host', type=str, required=False, default='localhost')
     argument_parser.add_argument('-p', '--port', type=int, required=False, default=1230)
     argument_parser.add_argument('-n', '--username', type=str, required=True)
     argument_parser.add_argument('-w', '--password', type=str, required=True)
