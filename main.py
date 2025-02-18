@@ -22,14 +22,16 @@ def createClient(host: str, port: int, username: str, password: str):
 def addTorrentURL(qbt: qbittorrentapi.Client, torrent_url: str, save_path: str):
     return qbt.torrents.add(
         urls=torrent_url,
-        save_path=save_path
+        save_path=save_path,
+        is_sequential_download=True
     ) == 'Ok.'
 
 
 def addTorrentFile(qbt: qbittorrentapi.Client, torrent_path: str, save_path: str):
     return qbt.torrents.add(
         torrent_files=torrent_path,
-        save_path=save_path
+        save_path=save_path,
+        is_sequential_download=True
     ) == 'Ok.'
 
 
