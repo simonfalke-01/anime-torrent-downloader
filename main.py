@@ -39,12 +39,16 @@ def getTorrents(qbt: qbittorrentapi.Client):
 
 if __name__ == '__main__':
     argument_parser = argparse.ArgumentParser()
+    argument_parser.add_argument('-h', '--host', type=str, required=False, default='localhost')
+    argument_parser.add_argument('-p', '--port', type=int, required=False, default=1230)
+    argument_parser.add_argument('-n', '--username', type=str, required=True)
+    argument_parser.add_argument('-w', '--password', type=str, required=True)
     argument_parser.add_argument('-d', '--directory', type=str, required=False)
     argument_parser.add_argument('-u', '--url', type=str, required=False)
     argument_parser.add_argument('-o', '--output', type=str)
     args = argument_parser.parse_args()
 
-    qbt = createClient('localhost', 1230, 'simonfalke', 'simonfalkeadmin')
+    qbt = createClient(args.host, args.port, args.username, args.password)
 
     # add all torrents in the directory
     if args.directory:
